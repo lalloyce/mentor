@@ -4,36 +4,34 @@
 <html lang="en">
 <head>
     {% block title %}
-    <!-- Page title will be injected here -->
+    <title>Your Default Title</title>
     {% endblock %}
 
     {% block description %}
-    <!-- Page description will be injected here -->
+    <meta name="description" content="Your default description here.">
     {% endblock %}
 
     {% block keywords %}
-    <!-- Page keywords will be injected here -->
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
     {% endblock %}
 
     {% block extra_head %}
     <!-- Additional head content can be added here -->
-
     {% endblock %}
-
 </head>
 
-<body class="{% block body_class %}    {% endblock %}">
+<body class="{% block body_class %}default-body-class{% endblock %}">
 
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
     
-          <a href="{% '/' %}" class="logo d-flex align-items-center me-auto">
+          <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
             <img src="{% static 'assets/img/logo.png' %}" alt="logo">
           </a>
     
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="{% url 'index' %}" class="active">Home<br></a></li>
+              <li><a href="{% url 'home' %}" class="active">Home<br></a></li>
               <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="{% url 'courses' %}">Courses</a></li>
               <li><a href="{% url 'trainers' %}">Trainers</a></li>
@@ -47,96 +45,102 @@
           <a class="btn-getstarted" href="{% url 'courses' %}">Get Started</a>
     
         </div>
-      </header>
+    </header>
 
-  <main class="main">
-    {% block content %}
-    <!-- Page specific content will be injected here -->
+    <main class="main">
+        {% block content %}
+        <!-- Page specific content will be injected here -->
+        {% endblock %}
+    </main>
+
+    <footer id="footer" class="footer position-relative light-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+                        <span class="sitename">Mentor</span>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>A108 Adam Street</p>
+                        <p>New York, NY 535022</p>
+                        <p class="mt-3"><strong>Phone:</strong> +1 5589 55488 55</p>
+                        <p><strong>Email:</strong> info@example.com</p>
+                    </div>
+                    <div class="social-links d-flex mt-4">
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About us</a></li>
+                        <li><a href="{% url 'courses' %}">Courses</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <h4>Our Newsletter</h4>
+                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                    <!-- Adjust form action to your actual endpoint -->
+                    <form action="{% url 'newsletter' %}" method="post" class="php-email-form">
+                        {% csrf_token %}
+                        <div class="newsletter-form">
+                            <input type="email" name="email" required placeholder="Enter your email">
+                            <input type="submit" value="Subscribe">
+                        </div>
+                        <!-- Optional: Include messages for user feedback -->
+                        <!-- Add loading/error/success messages here if needed -->
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© Copyright<strong class="px-1 sitename">Mentor</strong> All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    {% block extra_js %}
+    <!-- Main JS File -->
     {% endblock %}
-  </main>
+    
+    <!-- Ensure scripts are loaded at the bottom for better performance -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="{% url 'index' %}" class="logo d-flex align-items-center">
-            <span class="sitename">Mentor</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Mentor</strong> <span>All Rights Reserved</span></p>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-
-  <!-- Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}"></script>
-
-  {% block extra_js %}
-  <!-- Additional JS scripts can be added here -->
-  {% endblock %}
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
 
 </body>
 
