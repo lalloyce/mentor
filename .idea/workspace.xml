@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c31b76d-ba1d-4960-83c5-be127bfb6640" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentor_app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentor_app/templates/index.html" afterDir="false" />
+    <list default="true" id="9c31b76d-ba1d-4960-83c5-be127bfb6640" name="Changes" comment="conversion to Django">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mentor_app/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentor/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentor/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentor_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,22 +42,23 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "lalloyce"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lalloyce&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lalloyce/mentor.git",
-    "accountId": "a5b98839-c892-4d32-9910-d0ed915e87ff"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lalloyce/mentor.git&quot;,
+    &quot;accountId&quot;: &quot;a5b98839-c892-4d32-9910-d0ed915e87ff&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2owdD37ORZrwXOFKcojAVBlzw38" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -65,6 +70,7 @@
     "Django Server.mentor.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
@@ -76,6 +82,11 @@
     "settings.build.tools.auto.reload": "ALL",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -126,7 +137,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731784450663</updated>
-      <workItem from="1731784453296" duration="5228000" />
+      <workItem from="1731784453296" duration="5956000" />
+      <workItem from="1731918872505" duration="2597000" />
     </task>
     <servers />
   </component>
@@ -135,5 +147,9 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myShow1" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="conversion to Django" />
+    <option name="LAST_COMMIT_MESSAGE" value="conversion to Django" />
   </component>
 </project>
