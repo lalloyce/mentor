@@ -16,13 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework import routers
-from mentor_app import Mentorview
+from mentor_app.views import Mentorview
+
+router = routers.DefaultRouter()
+router.register('mentors', Mentorview, basename='mentor')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('', include('mentor_app.urls')),
-]
-
-router = routers.DefaultRouter()
-router.register('', Mentorview.Mentorview, basename = 'mentor')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
