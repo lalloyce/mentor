@@ -3,49 +3,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block title %}
-    <title>Your Default Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block meta %}
+    <meta name="description" content="{% block meta_description %}Your default description here.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}keyword1, keyword2, keyword3{% endblock %}">
     {% endblock %}
 
-    {% block description %}
-    <meta name="description" content="Your default description here.">
+    <title>{% block title %}Mentor - Your Learning Partner{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+
+    {% block styles %}
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <!-- GLightbox -->
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <!-- Swiper -->
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- Main CSS -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
     {% endblock %}
 
-    {% block keywords %}
-    <meta name="keywords" content="keyword1, keyword2, keyword3">
-    {% endblock %}
-
-    {% block extra_head %}
-    <!-- Additional head content can be added here -->
-    {% endblock %}
+    {% block extra_head %}{% endblock %}
 </head>
 
 <body class="{% block body_class %}default-body-class{% endblock %}">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="line"></div>
+    </div>
 
+    {% block header %}
     <header id="header" class="header d-flex align-items-center sticky-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
+            <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto">
+                <img src="{% static 'img/logo.png' %}" alt="Mentor Logo">
+            </a>
     
-          <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto">
-            <img src="{% static 'assets/../static/img/logo.png' %}" alt="logo">
-          </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="{% block nav_home %}{% endblock %}">Home</a></li>
+                    <li><a href="#about" class="{% block nav_about %}{% endblock %}">About</a></li>
+                    <li><a href="#courses" class="{% block nav_courses %}{% endblock %}">Courses</a></li>
+                    <li><a href="#trainers" class="{% block nav_trainers %}{% endblock %}">Trainers</a></li>
+                    <li><a href="#events" class="{% block nav_events %}{% endblock %}">Events</a></li>
+                    <li><a href="#pricing" class="{% block nav_pricing %}{% endblock %}">Pricing</a></li>
+                    <li><a href="#contact" class="{% block nav_contact %}{% endblock %}">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
     
-          <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="{% url 'home' %}" class="active">Home<br></a></li>
-              <li><a href="{% url 'about' %}">About</a></li>
-              <li><a href="{% url 'courses' %}">Courses</a></li>
-              <li><a href="{% url 'trainers' %}">Trainers</a></li>
-              <li><a href="{% url 'events' %}">Events</a></li>
-              <li><a href="{% url 'pricing' %}">Pricing</a></li>
-              <li><a href="{% url 'contact' %}">Contact</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-    
-          <a class="btn-getstarted" href="{% url 'courses' %}">Get Started</a>
-    
+            <a class="btn-getstarted" href="#courses">Get Started</a>
         </div>
     </header>
+    {% endblock %}
+
+    {% block pre_main %}{% endblock %}
 
     <main class="main">
         {% block content %}
@@ -53,6 +76,9 @@
         {% endblock %}
     </main>
 
+    {% block post_main %}{% endblock %}
+
+    {% block footer %}
     <footer id="footer" class="footer position-relative light-background">
         <div class="container footer-top">
             <div class="row gy-4">
@@ -78,70 +104,61 @@
                     <h4>Useful Links</h4>
                     <ul>
                         <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'about' %}">About us</a></li>
-                        <li><a href="{% url 'courses' %}">Courses</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#terms">Terms of service</a></li>
+                        <li><a href="#privacy">Privacy policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#web-design">Web Design</a></li>
+                        <li><a href="#web-development">Web Development</a></li>
+                        <li><a href="#product-management">Product Management</a></li>
+                        <li><a href="#marketing">Marketing</a></li>
+                        <li><a href="#graphic-design">Graphic Design</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-12 footer-newsletter">
                     <h4>Our Newsletter</h4>
                     <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                    <!-- Adjust form action to your actual endpoint -->
-                    <form action="{% url 'newsletter' %}" method="post" class="php-email-form">
-                        {% csrf_token %}
-                        <div class="newsletter-form">
-                            <input type="email" name="email" required placeholder="Enter your email">
-                            <input type="submit" value="Subscribe">
-                        </div>
-                        <!-- Optional: Include messages for user feedback -->
-                        <!-- Add loading/error/success messages here if needed -->
+                    <form action="" method="post">
+                        <input type="email" name="email" required>
+                        <input type="submit" value="Subscribe">
                     </form>
                 </div>
-
             </div>
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© Copyright<strong class="px-1 sitename">Mentor</strong> All Rights Reserved.</p>
+            <p>&copy; <span>Copyright</span> <strong class="px-1">Mentor</strong> <span>All Rights Reserved</span></p>
         </div>
-
     </footer>
-
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    {% block extra_js %}
-    <!-- Main JS File -->
     {% endblock %}
-    
-    <!-- Ensure scripts are loaded at the bottom for better performance -->
-    <script src="{% static 'assets/../static/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/../static/vendor/php-email-form/validate.js' %}"></script>
-    <script src="{% static 'assets/../static/vendor/aos/aos.js' %}"></script>
-    <script src="{% static 'assets/../static/vendor/glightbox/js/glightbox.min.js' %}"></script>
-    <script src="{% static 'assets/../static/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-    <script src="{% static 'assets/../static/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
-    <!-- Main JS File -->
-    <script src="{% static 'assets/../static/js/main.js' %}"></script>
+    <!-- Scroll Top Button -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
 
+    {% block scripts %}
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- AOS Animation -->
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <!-- GLightbox -->
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <!-- Swiper -->
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <!-- Pure Counter -->
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endblock %}
+
+    {% block extra_scripts %}{% endblock %}
 </body>
-
 </html>
