@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c31b76d-ba1d-4960-83c5-be127bfb6640" name="Changes" comment="conversion to Django">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mentor_app/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentor/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentor_app/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="9c31b76d-ba1d-4960-83c5-be127bfb6640" name="Changes" comment="adding apis" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,8 +130,17 @@
       <option name="presentableId" value="Default" />
       <updated>1731784450663</updated>
       <workItem from="1731784453296" duration="5956000" />
-      <workItem from="1731918872505" duration="2597000" />
+      <workItem from="1731918872505" duration="2911000" />
     </task>
+    <task id="LOCAL-00001" summary="adding apis">
+      <option name="closed" value="true" />
+      <created>1731926414805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731926414805</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +151,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="conversion to Django" />
-    <option name="LAST_COMMIT_MESSAGE" value="conversion to Django" />
+    <MESSAGE value="adding apis" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding apis" />
   </component>
 </project>
